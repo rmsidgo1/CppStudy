@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
     // For 기본 예제
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++) // for(A; B; C) A:변수 선언, B: B의 조건이 False가 아니라면 실행, 실행 완료 후 실행할 행동.
     {
         cout << i << " ";
     }
@@ -18,9 +18,9 @@ int main()
     // 배열 데이터 출력 연습 문제로 제공
     // 힌트: sizeof(my_array)
     int my_array[] = {1, 2, 3, 4, 5, 4, 3, 2, 1};
-    // for (...)
+    for (int i =0; i<sizeof(my_array) / sizeof(int); i++)
     {
-        // TODO: 완성
+        cout << my_array[i] <<" ";
     }
     cout << endl;
 
@@ -31,9 +31,11 @@ int main()
     // cout << my_string << endl; 사용 X
     // 힌트: sizeof(), '\0', break,
 
-    // for (...)
+    for (int i =0; i<sizeof(my_string) / sizeof(char); i++)
     {
-        // TODO: 완성
+        if (my_string[i] == '\0')
+            break;
+        cout << my_string[i] << " ";
     }
     cout << endl;
 
@@ -49,11 +51,15 @@ int main()
     */
 
     // 실습 문제
-    // while (true)
+    while (true) // for(;true;)
     {
-        // 이 구조에서 똑같이 정수 출력하도록 만들게 하기 (break)
+        cout << i << " ";
+        i ++;
+        if (i == 10)
+            break;
     }
-
+    cout << endl;
+    
     // 런타임오류 주의
     // while문으로 문자열 한글자씩 출력하기
     // 힌트 && logical and
@@ -67,5 +73,15 @@ int main()
     cout << endl;
     */
 
+    // while문 사용해서 my string 출력하는 문제 풀어보기
+    int i = 0;
+    while(i<sizeof(my_string) / sizeof(char) && my_string[i] != '\0')
+    {
+        cout << my_string[i] << " ";
+        i ++;
+    }
+    cout << endl;
+            
+    
     return 0;
 }
