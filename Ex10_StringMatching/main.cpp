@@ -20,6 +20,22 @@ bool IsEqual(const char str1[], const char str2[])
     // 힌트: 문자열 종료 조건
     // 디버깅 힌트: 문자를 정수로 바꿔서 출력해보기
 
+    if (sizeof(str1) != sizeof(str2))
+    {
+        return false;
+    }
+
+    else 
+    {
+        for (int i = 0; i<sizeof(str1) / sizeof(char); i++)
+            {
+                if (str1[i] != str2[i])
+                    return false;
+                if (str1[i] == '\0')
+                    return true; //문자열 종료 조건!!!!
+            }
+    }
+    
     return true;
 }
 
@@ -30,7 +46,11 @@ int main()
 
     while (1)
     {
-        // TODO:
+        char str2[kMaxStr];
+        cout << "입력: " << endl;
+        cin >> str2;
+        if (IsEqual(str1, str2))
+            break;
     }
 
     return 0;
