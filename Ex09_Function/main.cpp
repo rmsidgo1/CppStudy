@@ -15,7 +15,7 @@ int Add(int a, int b)
 }
 
 // 반환 자료형이 지정되지 않았음 (void)
-void Add(int a, int b, int *c)
+void Add(int a, int b, int *c) // C / C++에서는 반환을 변수 하나만 할 수 있음. 여러 개 반환하고 싶을 때 포인터 변수를 인자로 받아서 역참조를 이용하는 방식으로 여러 변수 저장 가능.. 
 {
     *c = a + b;
 }
