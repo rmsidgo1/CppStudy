@@ -95,7 +95,14 @@ int PhoneBook::FindByName()
     cin.getline(search_name, sizeof(search_name));
 
     // TODO: IsEqual(), PrintContact(i), return i
-
+    for (i=0; i<num_contacts_; i++)
+    {
+        if IsEqual(search_name, contacts[i].name)
+        {
+            PrintContact(i);
+            return i;
+        }
+    }
     cout << search_name << " 님을 찾지 못했습니다." << endl;
 
     return -1;
@@ -124,9 +131,11 @@ void PhoneBook::DeleteByName()
     if (index >= 0)
     {
         // TODO: 중간에서 삭제했을 경우 데이터 정리
-
+        for (i = index; i < num_contacts-1; i++)
+            // contacts_[i] = contracts[i+1];
+            memcpy(&contacts_[i], &contacts_[i+1], sizeof(Contact));
+        
         // TODO: num_contacts_ 하나 감소
-
         num_contacts_ -= 1;
     }
 }
